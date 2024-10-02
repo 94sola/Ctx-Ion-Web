@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'Eudoxus';
+    src: url('./font/EudoxusSans-Bold-BF659b6cb1408e5.ttf') format('ttf'),
+         url('./font/EudoxusSans-ExtraBold-BF659b6cb1b96c9.ttf') format('ttf1'),
+         url('./font/EudoxusSans-Regular-BF659b6cb1d4714.ttf2')
+  }
+  
