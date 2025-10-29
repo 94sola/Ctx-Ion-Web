@@ -10,7 +10,7 @@ const Hero = () => {
                 </h1>
                 <p className="text-white text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-bold leading-[1.4] mx-auto w-[60%] sm:w-[50%] mt-4">Welcome to CTX-ION, where precision meets excellence in every analysis.</p>
                 <div className="flex justify-center mt-6">
-                    <button className="font-bold text-base  leading-[19.2px] border  text-black border-[#096DA7] hover:bg-[#096DA7] hover:text-[#f3faff] px-6 py-3 rounded-[28px] w-fit transition duration-300 ease-in-out">
+                    <button className="font-normal text-base  leading-[19.2px] border  text-black border-[#096DA7] hover:bg-[#096DA7] hover:text-[#f3faff] px-6 py-3 rounded-[28px] w-fit transition duration-300 ease-in-out">
                     Learn More
                     </button>
                 </div>
