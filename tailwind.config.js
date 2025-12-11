@@ -1,9 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        heading: ['"Inter Tight"', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+        manrope: ['"Manrope"', 'sans-serif'],
+      },
+      
+    },
   },
   plugins: [],
-}
-
+};

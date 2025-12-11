@@ -1,44 +1,29 @@
-  // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import About from './components/About'
-import Hero from './components/Hero';
-import Whatwe from './components/whatWe';
-import Service from './components/Service';
-import TestimonialsSection from './components/Testimonies';
-import Team from './components/Team';
-import Footer from './components/Footer';
-import TrustedBy from './components/TrustedBy';
-import './fonts.css';
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
+import Navbar from "./components/Navbar";
+import Hero from "./components/ctx-ion";
+import Contact from "./components/Service";
+import Footer from "./components/Footer";
+import Services from "./components/Service";
+import About from "./components/About";
+import Gallery from "./components/gallery";
+
+export default function App() {
   return (
-   
-      <main className='relative font-[Eudoxus Sans]'>
-      <Navbar />
-      <Hero />
-      <About />
-      <Whatwe />
-      <Service />
-      <TestimonialsSection />
-      <Team />
-      <TrustedBy />
-      <Footer />
-      
+    <Router>
+      <div className="relative bg-[#ffffff] min-h-screen">
+        <Navbar />
 
-        
-        {/* <Routes>
-          <Route path="/" element={<Hero />} /> {/* Home or Hero Section 
-          {/* <Route path="/about" element={<About />} />
-          <Route path="/what-we-do" element={<Whatwe />} />
-          <Route path="/services" element={<Service />} />
-          <Route path="/testimonials" element={<TestimonialsSection />} />
-          <Route path="/team" element={<Team />} />
-        </Routes> */}
-        
-        
-      </main>
-    // </Router>
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/gallery" element={<Gallery />} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </Router>
   );
 }
-
-export default App
