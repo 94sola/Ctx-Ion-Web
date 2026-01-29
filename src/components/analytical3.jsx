@@ -140,7 +140,7 @@ export default function GCMSAdvancedReport() {
           </div>
 
             <div>
-              <p className="text-gray-700 leading-relaxed mb-6 ">
+              <p className="text-gray-700 leading-relaxed mb-6 max-w-4xl  ">
                 CTX-ION Analytical Research Laboratory develops validated GC-MS
                 methods for trace-level residual solvents and volatile impurities,
                 ensuring regulatory compliance and analytical reproducibility.
@@ -155,7 +155,7 @@ export default function GCMSAdvancedReport() {
             </div>
 
      
-            <div className="h-80 border p-4 my-10">
+            <div className="h-80 border p-4 my-10 max-w-4xl mx-auto">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart>
                   <XAxis dataKey="rt" type="number" />
@@ -200,11 +200,11 @@ export default function GCMSAdvancedReport() {
           
 
    
-          <h3 className="text-xl font-semibold mb-4">
+          <h3 className="text-xl font-semibold mb-4 max-w-4xl mx-auto">
             Electron Ionization Mass Spectrum
           </h3>
 
-          <div className="h-64 border p-4">
+          <div className="h-64 border p-4 max-w-4xl mx-auto">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={massSpectrum}>
                 <XAxis dataKey="mz" />

@@ -147,9 +147,9 @@ const Ctx = () => {
     <section
       ref={wrapperRef}
       tabIndex={0}
-      className="w-full bg-[#eef3fa] py-14 font-manrope outline-none"
+      className="w-full bg-[#eef3fa] max-w-[1416px] mx-auto py-14 font-manrope outline-none"
     >
-      <div className="max-w-[1336px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className=" px-4 sm:px-6 lg:px-8">
 
         <div className="mb-12">
           <p className="text-sm text-gray-600 mb-2">

@@ -1,16 +1,18 @@
+
+
 import img1 from "../assets/image/about-frame.jpg"; 
-import img2 from "../assets/image/hero-image.webp";
-import img3 from "../assets/image/landing-frame.jpg";
+import img2 from "../assets/image/about-frame.jpg";
+import img3 from "../assets/image/about-frame.jpg";
 import img4 from "../assets/image/HPLC.png";
-import img5 from "../assets/image/son4.jpg";
+import img5 from "../assets/image/about-frame.jpg";
 import img6 from "../assets/image/gc-ms.jpg";
-import img7 from "../assets/image/IMG_5239.jpg";
-import img8 from "../assets/image/IMG_5307.jpg";
-import img9 from "../assets/image/IMG_5315.jpg";
+import img7 from "../assets/image/about-frame.jpg";
+import img8 from "../assets/image/about-frame.jpg";
+import img9 from "../assets/image/about-frame.jpg";
 
 export default function Hero() {
   return (
-    <section className="relative w-full py-10 lg:py-16 overflow-hidden">
+    <section className="relative w-full py-10 lg:py-16 overflow-hidden  max-w-7xl mx-auto">
 
       <div className="absolute left-0 top-0 w-[60%] h-full bg-[#f8fdff]" />
       <div className="absolute right-0 top-0 w-[40%] h-full bg-[#f8f3fc]" />
@@ -45,7 +47,7 @@ export default function Hero() {
           </button>
         </div>
       </div>
-      <div className="absolute bottom-4 sm:bottom-6 lg:bottom-10 right-4 sm:right-6 lg:right-10 z-20 max-w-xl">
+      <div className="absolute bottom-4 sm:bottom-6 lg:bottom-10 right-10 sm:right-6 lg:right-10 z-20 max-w-3xl">
         <div className="grid grid-cols-3 gap-3 sm:gap-4">
 
           {[
