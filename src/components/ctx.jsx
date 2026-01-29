@@ -21,15 +21,16 @@ const Ctx = () => {
   return (
     <section className="w-full font-manrope bg-white py-10 md:py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+
         <div className="flex items-center gap-2 mb-10">
-            <span className="w-2 h-2 bg-[#0e8dc7] rounded-full"></span>
-            <span className="text-gray-600 text-sm">About Ctx</span>
+          <span className="w-2 h-2 bg-[#0e8dc7] rounded-full"></span>
+          <span className="text-gray-600 text-sm">About CTX-ION</span>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 items-start">
           <div className="w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[300px]">
             <h2 className="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl leading-[1.2] font-medium tracking-tight mb-4">
-              Creating impactful brand stories together
+              Delivering trusted analytical science with precision and integrity
             </h2>
           </div>
 
@@ -37,7 +38,7 @@ const Ctx = () => {
             <img
               src={imgTopRight}
               className="w-full h-[240px] sm:h-[300px] md:h-[350px] lg:h-[340px] object-cover rounded-xl shadow-sm"
-              alt="Team meeting"
+              alt="CTX-ION laboratory analysis"
             />
           </div>
 
@@ -47,17 +48,18 @@ const Ctx = () => {
             </div>
 
             <h3 className="text-lg sm:text-xl font-semibold mb-3">
-              Industries we serve
+              Sectors we support
             </h3>
 
             <p className="text-gray-600 leading-relaxed mb-6">
-              We provide tailored digital solutions across various industries,
-              ensuring businesses achieve success in the digital world.
+              CTX-ION provides advanced analytical testing services across
+              environmental, food, pharmaceutical, agricultural, and industrial
+              sectors, ensuring accuracy, compliance, and regulatory confidence.
             </p>
 
             <Link to="/about">
               <button className="text-[#0e8dc7] font-medium text-sm sm:text-base flex items-center gap-2 hover:underline">
-                More About us →
+                Learn more about CTX-ION →
               </button>
             </Link>
           </div>
@@ -68,7 +70,7 @@ const Ctx = () => {
             <img
               src={imgBottomLeft}
               className="w-full h-[240px] sm:h-[300px] md:h-[330px] object-cover rounded-xl shadow-sm"
-              alt="About frame"
+              alt="Laboratory collaboration"
             />
           </div>
 
@@ -78,21 +80,21 @@ const Ctx = () => {
             </div>
 
             <h3 className="text-xl sm:text-2xl font-semibold mb-4">
-              Partnerships that matter
+              Strategic partnerships and research collaboration
             </h3>
 
             <p className="text-gray-700 leading-relaxed mb-6 sm:mb-3">
-              We build meaningful collaborations that empower organizations
-              and drive long-term growth in a rapidly changing digital landscape.
+              We collaborate with regulatory bodies, academic institutions,
+              and industry partners to advance research, support compliance,
+              and deliver scientifically sound analytical outcomes.
             </p>
 
             <Link to="/service">
               <button className="text-[#0e8dc7] font-medium text-sm sm:text-base flex items-center gap-2 hover:underline">
-                View Our Work →
+                Explore our capabilities →
               </button>
             </Link>
           </div>
-
         </div>
 
       </div>

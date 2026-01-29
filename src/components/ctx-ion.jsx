@@ -7,7 +7,7 @@ import Hero4 from './ctx3';
 
 export default function Home() {
   return (
-    <div className="home-page bg-[#efebe7]">
+    <div className="bg-white">
       <Hero />
       <Hero1 />
       <Hero2 />

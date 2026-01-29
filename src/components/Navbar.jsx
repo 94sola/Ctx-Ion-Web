@@ -1,13 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IoMdClose } from "react-icons/io";
 import logo from "../assets/image/CTX-logo.png";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [lastScroll, setLastScroll] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const current = window.scrollY;
+
+      if (current > lastScroll && current > 40) {
+        setHidden(true);     // scrolling down
+      } else {
+        setHidden(false);    // scrolling up
+      }
+
+      setLastScroll(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScroll]);
 
   return (
-    <header className="w-full bg-[#f8fdff] font-manrope fixed top-0 left-0 z-50">
+    <header
+      className={`w-full bg-[#f8fdff] font-manrope fixed top-0 left-0 z-50 transition-transform duration-300 ${
+        hidden ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 ">
         <Link to="/" className="flex items-center">
           <img src={logo} className="h-16 object-contain" alt="CTX" />
@@ -26,6 +49,7 @@ export default function Navbar() {
         >
           MENU —
         </button>
+
         <div
           className={`fixed top-0 right-0 h-full w-[80%] bg-[#e6ecf5] transition-all duration-300 ${
             open ? "translate-x-0" : "translate-x-full"

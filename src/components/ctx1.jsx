@@ -1,133 +1,209 @@
 import { Link } from "react-router-dom";
+import { useRef, useEffect, useState } from "react";
 
 
-const BuildingIcon = () => (
-  <svg
-    className="w-20 h-20 text-[#91668f]"
-    viewBox="0 0 48 48"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <rect x="10" y="14" width="28" height="24" rx="2" />
-    <path d="M18 14v-6h12v6" />
-    <path d="M20 22h2M20 28h2M26 22h2M26 28h2" />
-  </svg>
+const IconWrap = ({ children }) => (
+  <div className="w-20 h-20 text-[#91668f] flex items-center justify-center">
+    {children}
+  </div>
 );
 
-const CodeIcon = () => (
-  <svg
-    className="w-20 h-20 text-[#91668f]"
-    viewBox="0 0 48 48"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M16 18l-6 6 6 6" />
-    <path d="M32 18l6 6-6 6" />
-    <path d="M20 30l8-12" />
-  </svg>
+const LabIcon = () => (
+  <IconWrap>
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M18 2v8l-8 14a10 10 0 0 0 9 15h10a10 10 0 0 0 9-15L30 10V2" />
+    </svg>
+  </IconWrap>
 );
 
-const GlobeIcon = () => (
-  <svg
-    className="w-20 h-20 text-[#91668f]"
-    viewBox="0 0 48 48"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <circle cx="24" cy="24" r="12" />
-    <path d="M12 24h24" />
-    <path d="M24 12c4 6 4 18 0 24" />
-  </svg>
+const MicroscopeIcon = () => (
+  <IconWrap>
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M20 10l8 8M12 36h24M24 18v10a8 8 0 0 1-8 8" />
+    </svg>
+  </IconWrap>
 );
 
-const ChartIcon = () => (
-  <svg
-    className="w-20 h-20 text-[#91668f]"
-    viewBox="0 0 48 48"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M12 30h6V18h-6zM21 30h6V14h-6zM30 30h6V22h-6z" />
-  </svg>
+const DataIcon = () => (
+  <IconWrap>
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M6 36h6V18H6zM18 36h6V12h-6zM30 36h6V24h-6z" />
+    </svg>
+  </IconWrap>
 );
+
+const ReportIcon = () => (
+  <IconWrap>
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2">
+      <rect x="10" y="6" width="28" height="36" />
+      <path d="M16 14h16M16 22h16M16 30h10" />
+    </svg>
+  </IconWrap>
+);
+
 
 const services = [
   {
-    icon: <BuildingIcon />,
-    title: "Industries We Serve",
-    text: "We provide tailored digital solutions across multiple industries to help businesses accelerate growth.",
+    icon: <LabIcon />,
+    title: "Advanced Analytical Testing",
+    text: "CTX-ION delivers high-precision analytical testing using validated laboratory methodologies, ensuring accuracy, repeatability, and scientific integrity.",
+    link: "/analytical",
   },
   {
-    icon: <CodeIcon />,
-    title: "Web Development",
-    text: "We build scalable, modern, and user-centric web applications designed for performance and innovation.",
+    icon: <MicroscopeIcon />,
+    title: "Scientific Research & Development",
+    text: "We support experimental research and innovation through structured laboratory studies and scientific validation.",
+    link: "/research",
   },
   {
-    icon: <GlobeIcon />,
-    title: "Digital Strategy",
-    text: "We help brands establish a powerful online presence through strategic digital planning and execution.",
+    icon: <DataIcon />,
+    title: "Data Interpretation & Modeling",
+    text: "Our specialists convert complex analytical datasets into actionable insights.",
+    link: "/data",
   },
   {
-    icon: <ChartIcon />,
-    title: "Business Analytics",
-    text: "We leverage data-driven insights to help organizations make informed decisions and boost efficiency.",
+    icon: <ReportIcon />,
+    title: "Comprehensive Laboratory Reporting",
+    text: "We produce detailed laboratory reports for regulatory, academic, and industrial use.",
+    link: "/services/laboratory-reporting",
+  },
+  {
+    icon: <LabIcon />,
+    title: "Quality Control & Assurance",
+    text: "Rigorous quality control testing ensuring compliance and consistency.",
+    link: "/quality",
+  },
+  {
+    icon: <MicroscopeIcon />,
+    title: "Method Development & Validation",
+    text: "Custom analytical method development with high sensitivity and reproducibility.",
+    link: "/method",
+  },
+  {
+    icon: <DataIcon />,
+    title: "Regulatory & Compliance Support",
+    text: "Defensible analytical documentation supporting audits and certifications.",
+    link: "/support",
+  },
+  {
+    icon: <ReportIcon />,
+    title: "Scientific Consulting & Insights",
+    text: "Expert consultation guiding laboratory strategy and interpretation.",
+    link: "/consulting",
   },
 ];
 
+
 const Ctx = () => {
+  const sliderRef = useRef(null);
+  const wrapperRef = useRef(null);
+
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const updateScrollState = () => {
+    const el = sliderRef.current;
+    if (!el) return;
+
+    setCanScrollLeft(el.scrollLeft > 0);
+    setCanScrollRight(
+      el.scrollLeft + el.clientWidth < el.scrollWidth - 5
+    );
+  };
+
+  const handleScroll = (direction) => {
+    if (!sliderRef.current) return;
+
+    sliderRef.current.scrollBy({
+      left: direction === "left" ? -1320 : 1320,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!wrapperRef.current?.contains(document.activeElement)) return;
+
+      if (e.key === "ArrowRight" && canScrollRight) handleScroll("right");
+      if (e.key === "ArrowLeft" && canScrollLeft) handleScroll("left");
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [canScrollLeft, canScrollRight]);
+
+  useEffect(() => {
+    updateScrollState();
+    sliderRef.current?.addEventListener("scroll", updateScrollState);
+    window.addEventListener("resize", updateScrollState);
+
+    return () => {
+      sliderRef.current?.removeEventListener("scroll", updateScrollState);
+      window.removeEventListener("resize", updateScrollState);
+    };
+  }, []);
+
   return (
-    <section className="w-full font-manrope bg-[#eef3fa] py-10 md:py-14">
+    <section
+      ref={wrapperRef}
+      tabIndex={0}
+      className="w-full bg-[#eef3fa] py-14 font-manrope outline-none"
+    >
       <div className="max-w-[1336px] mx-auto px-4 sm:px-6 lg:px-8">
-      
-        <div className="flex items-center gap-2 mb-10">
-          <span className="w-2 h-2 bg-[#0e8dc7] rounded-full"></span>
-          <span className="text-gray-600 text-sm font-manrope">Our Services</span>
+
+        <div className="mb-12">
+          <p className="text-sm text-gray-600 mb-2">
+            CTX-ION Analytical Research Laboratory
+          </p>
+          <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold tracking-tight">
+            Laboratory Services & Capabilities
+          </h2>
         </div>
 
-        <h4 className="text-2xl sm:text-3xl xl:text-4xl font-manrope leading-[1.2] font-medium tracking-tight mb-4">
-          Solutions We Provide
-        </h4>
+        <div className="relative flex items-center gap-6">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-
-          {services.map((item, index) => (
-            <div
-              key={index}
-              className="
-                p-4 sm:p-6 lg:p-8 bg-white 
-                rounded-none
-                border border-gray-200 
-                flex flex-col 
-                transition-all duration-300
-                hover:border-black
-                hover:shadow-xl
-                hover:scale-[1.03]
-                cursor-pointer
-                font-manrope
-              "
+          {canScrollLeft && (
+            <button
+              onClick={() => handleScroll("left")}
+              className="hidden lg:flex w-12 h-12 border border-gray-300 items-center justify-center text-xl hover:bg-black hover:text-white transition z-20"
             >
-              <div className="sm:mb-10 mb-6">{item.icon}</div>
+              ←
+            </button>
+          )}
 
-              <h3 className="text-xl sm:text-2xl font-semibold mb-3 font-manrope">
-                {item.title}
-              </h3>
+          <div
+            ref={sliderRef}
+            className="flex gap-6 overflow-x-hidden scroll-smooth w-full"
+          >
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="min-w-[300px] max-w-[300px] bg-white border border-gray-200 p-6 flex-shrink-0 hover:border-black hover:shadow-xl transition"
+              >
+                <div className="mb-8">{service.icon}</div>
+                <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                  {service.text}
+                </p>
+                <Link
+                  to={service.link}
+                  className="inline-flex items-center gap-2 text-[#91668f] text-sm font-medium hover:underline"
+                >
+                  Explore Service →
+                </Link>
+              </div>
+            ))}
+          </div>
 
-              <p className="text-gray-600 text-base leading-relaxed font-manrope mb-6">
-                {item.text}
-              </p>
-
-              <Link to="/about">
-                <button className="text-[#91668f] font-medium text-sm sm:text-base hover:underline font-manrope flex items-center gap-2">
-                  Read More
-                </button>
-              </Link>
-            </div>
-          ))}
-
+          
+          {canScrollRight && (
+            <button
+              onClick={() => handleScroll("right")}
+              className="hidden lg:flex w-12 h-12 border border-gray-300 items-center justify-center text-xl hover:bg-black hover:text-white transition z-20"
+            >
+              →
+            </button>
+          )}
         </div>
       </div>
     </section>
